@@ -1,9 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:m16status/screens/splash_screen.dart';
 import 'package:m16status/state/app_state.dart';
-import 'package:m16status/utils/myhttp_overrides.dart';
+import 'package:m16status/utils/my_http_overrides.dart';
 import 'package:provider/provider.dart';
 import './utils/utils.dart';
 
@@ -18,16 +17,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var utils = Utils();
+    Utils utils = Utils();
     return MaterialApp(
       title: 'M16 Status',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: utils.primaryColor,
+        highlightColor: utils.secondaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreen(),

@@ -174,12 +174,6 @@ class _SearchFromState extends State<SearchFrom> {
       });
       if (successInfo['success'] && successInfo['stageCount'] > 0) {
         LoadingDialog.hideLoadingDialog(context);
-        setState(() {
-          _m16Controller.text = "";
-          _selectedBudgetType = null;
-          _selectedLocation = null;
-          _selectedOrganization = null;
-        });
         Navigator.of(context).push(
             MaterialPageRoute(
                 builder: (BuildContext context) =>

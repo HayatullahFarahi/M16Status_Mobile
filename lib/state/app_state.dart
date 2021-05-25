@@ -35,10 +35,12 @@ class AppState extends ChangeNotifier {
       _errorMessage = "";
       _searchFormDataJSON = json.encode(response.data);
       final searchModel = searchModelFromJson(json.encode(response.data));
+      ProjectLog.logIt("appstate", "search", searchModel.organizationsDescriptions.toString());
       return searchModel;
     }on DioError catch(error) {
       this._error = true;
       _errorMessage = "Could not get search form data";
+      ProjectLog.logIt("appstate", "search", error.message);
       return null;
     }
   }
