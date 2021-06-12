@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:m16status/screens/about.dart';
 
 class DrawerBuilder extends StatefulWidget {
 
@@ -74,7 +75,12 @@ class _DrawerBuilderState extends State<DrawerBuilder> {
             leading: Icon(Icons.info),
             title: Text('About Us', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
             onTap: () {
-              Navigator.of(context).pop();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AboutScreen()
+                )
+              );
             },
           ),
 

@@ -33,7 +33,7 @@ class _M16DetailsScreenState extends State<M16DetailsScreen> {
               padding: EdgeInsets.only(top: 18.0),
               child: Center(
                   child: Text(
-                    'Details',
+                    'M16 Details',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   )),
             ),
@@ -66,6 +66,18 @@ class _M16DetailsScreenState extends State<M16DetailsScreen> {
                     ],
                 );
               },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Divider( color: Colors.grey,),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                  child: Text(
+                    'M16 Stages Processed',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Theme.of(context).highlightColor),
+                  )),
             ),
             M16Steps(),
           ],
