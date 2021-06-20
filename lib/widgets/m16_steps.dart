@@ -32,9 +32,6 @@ class _M16StepsState extends State<M16Steps> {
     super.initState();
     final _appState = Provider.of<AppState>(context, listen: false);
     _currentStep = _appState.m16Model.stagesCount - 1;
-    print("_appState.m16Model.stagesCount - 1");
-    print(_appState.m16Model.stagesCount - 1);
-    print(_currentStep);
     createSteps(_appState.m16Model);
   }
 
@@ -85,24 +82,39 @@ class _M16StepsState extends State<M16Steps> {
             scrollDirection: Axis.horizontal,
             child: DataTable(
               columns: [
-                DataColumn(label: Text("No")),
-                DataColumn(label: Text("Stage")),
-                DataColumn(label: Text("Stage Update Time")),
-                DataColumn(label: Text("Step Note")),
+                DataColumn(label: Text(
+                    "Stage Details:"
+                )),
+                DataColumn(label: Text(
+                    ""
+                )),
               ],
               rows: [
                 DataRow(cells: [
+                  DataCell(Text("No :",style: TextStyle(fontWeight: FontWeight.normal),)),
                   DataCell(Text(
-                    (stagesData.indexOf(stagesData[i]) + 1).toString(),
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
+                        (stagesData.indexOf(stagesData[i]) + 1).toString(),
+                        style: TextStyle(fontWeight: FontWeight.normal),
+                      )),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text("Stage:",style: TextStyle(fontWeight: FontWeight.normal),)),
                   DataCell(
                       stagesData[i].toStage != 'Sent [en]' ? Text(stagesData[i].toStage.substring(0, stagesData[i].toStage.length - 4))
-                          : Text("Sent To Bank")
+                              : Text("Sent To Bank")
                   ),
-                  DataCell(Text(
-                      stagesData[i].printeddate.toUtc().toString().substring(0, 16))),
-                  DataCell(Text(stagesData[i].stepNote)),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text("Stage Update:",style: TextStyle(fontWeight: FontWeight.normal),)),
+                  DataCell(
+                      Text(
+                          stagesData[i].printeddate.toUtc().toString().substring(0, 16))),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text("Step Note:",style: TextStyle(fontWeight: FontWeight.normal),)),
+                  DataCell(
+                      Text(stagesData[i].stepNote)
+                  ),
                 ]),
               ],
             ),

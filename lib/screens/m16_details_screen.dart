@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:m16status/models/m16_details_model.dart';
 import 'package:m16status/state/app_state.dart';
@@ -62,7 +60,10 @@ class _M16DetailsScreenState extends State<M16DetailsScreen> {
                         DataCell(Text("Cheque Amount :",style: TextStyle(fontWeight: FontWeight.bold),)),
                         DataCell(Text(oCcy.format(stageOneData.chequeAmount), style: TextStyle(fontWeight: FontWeight.bold),)),
                      ]),
-
+                      DataRow(cells: [
+                        DataCell(Text("EV Number :",style: TextStyle(fontWeight: FontWeight.bold),)),
+                        DataCell(Text(stageOneData.applicationid.toString(), style: TextStyle(fontWeight: FontWeight.bold),)),
+                     ]),
                     ],
                 );
               },
